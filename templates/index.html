@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Recovery Prediction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Loan Recovery Status Predictor</h1>
+    <form id="predict-form">
+  <label>Age (in years): <input type="number" name="Age" required></label>
+  <label>Gender (Male/Female):
+    <select name="Gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </label>
+  <label>Employment Type (job type):
+    <select name="Employment_Type" required>
+      <option value="Salaried">Salaried (fixed monthly income)</option>
+      <option value="Self-Employed">Self-Employed (works for self)</option>
+      <option value="Business Owner">Business Owner (owns a business)</option>
+    </select>
+  </label>
+  <label>Monthly Income (in ₹): <input type="number" name="Monthly_Income" required></label>
+  <label>Number of Dependents (family members dependent on you): <input type="number" name="Num_Dependents" required></label>
+  <label>Loan Amount (total loan taken in ₹): <input type="number" name="Loan_Amount" required></label>
+  <label>Loan Tenure (months, loan duration): <input type="number" name="Loan_Tenure" required></label>
+  <label>Interest Rate (% per year): <input type="number" name="Interest_Rate" step="0.1" required></label>
+  <label>Loan Type (purpose of loan):
+    <select name="Loan_Type" required>
+      <option value="Home">Home (for house purchase)</option>
+      <option value="Auto">Auto (for vehicle)</option>
+      <option value="Personal">Personal (for personal use)</option>
+      <option value="Business">Business (for business use)</option>
+    </select>
+  </label>
+  <label>Collateral Value (value of security in ₹): <input type="number" name="Collateral_Value" required></label>
+  <label>Outstanding Loan Amount (remaining loan in ₹): <input type="number" name="Outstanding_Loan_Amount" required></label>
+  <label>Monthly EMI (monthly installment in ₹): <input type="number" name="Monthly_EMI" required></label>
+  <label>Payment History (repayment record):
+    <select name="Payment_History" required>
+      <option value="On-Time">On-Time (paid on time)</option>
+      <option value="Delayed">Delayed (paid late)</option>
+      <option value="Missed">Missed (missed payments)</option>
+    </select>
+  </label>
+  <label>Number of Missed Payments (times EMI not paid): <input type="number" name="Num_Missed_Payments" required></label>
+  <label>Days Past Due (days payment is overdue): <input type="number" name="Days_Past_Due" required></label>
+  <label>Collection Attempts (number of times recovery tried): <input type="number" name="Collection_Attempts" required></label>
+  <label>Collection Method (how recovery was tried):
+    <select name="Collection_Method" required>
+      <option value="Settlement Offer">Settlement Offer (offer to settle loan)</option>
+      <option value="Legal Notice">Legal Notice (legal warning sent)</option>
+      <option value="Calls">Calls (phone calls made)</option>
+      <option value="Debt Collectors">Debt Collectors (agency involved)</option>
+    </select>
+  </label>
+  <label>Legal Action Taken (court/legal case started):
+    <select name="Legal_Action_Taken" required>
+      <option value="Yes">Yes (legal action taken)</option>
+      <option value="No">No (no legal action)</option>
+    </select>
+  </label>
+  <button type="submit">Predict</button>
+</form>
+  
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

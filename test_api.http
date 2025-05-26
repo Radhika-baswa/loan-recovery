@@ -1,0 +1,24 @@
+POST http://127.0.0.1:5000/predict
+Content-Type: application/json
+
+{
+  "Age": 45,
+  "Gender": "Female",
+  "Employment_Type": "Salaried",
+  "Monthly_Income": 75000,
+  "Num_Dependents": 2,
+  "Loan_Amount": 500000,
+  "Loan_Tenure": 36,
+  "Interest_Rate": 11.5,
+  "Loan_Type": "Home",
+  "Collateral_Value": 600000,
+  "Outstanding_Loan_Amount": 200000,
+  "Monthly_EMI": 16200,
+  "Payment_History": "On-Time",
+  "Num_Missed_Payments": 0,
+  "Days_Past_Due": 0,
+  "Collection_Attempts": 1,
+  "Collection_Method": "Calls",
+  "Legal_Action_Taken": "No"
+}
+
