@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 import numpy as np
 import pandas as pd
@@ -7,6 +7,11 @@ from flask_cors import CORS
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+# Add this route for your homepage
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 
 # Load model and encoders
 model = joblib.load('loan_recovery_model.pkl')
@@ -47,7 +52,7 @@ def predict():
 
         # Add basic explanation (optional - simple rule-based logic)
         reason = ""
-        if data['Payment_History'] == 'On Time':
+        if data['Payment_History'] == 'On-Time':
             reason = "Borrower paid on time, showing good repayment behavior."
         elif data['Num_Missed_Payments'] > 3:
             reason = "Multiple missed payments reduce recovery chances."

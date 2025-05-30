@@ -8,6 +8,7 @@ form.addEventListener('submit', async (e) => {
   const data = {};
 
   formData.forEach((value, key) => {
+    // Convert to number if numeric field
     if (!isNaN(value) && value !== '') {
       data[key] = Number(value);
     } else {
@@ -33,6 +34,7 @@ form.addEventListener('submit', async (e) => {
       resultArea.innerHTML = `<strong style="color:red;">Error:</strong> ${result.error}`;
     }
   } catch (err) {
+    console.error("JS Error:", err);
     resultArea.innerHTML = `<strong style="color:red;">Failed to connect to API.</strong>`;
   }
 });
