@@ -7,18 +7,18 @@ from flask_cors import CORS
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-# Add this route for your homepage
+
+# Homepage
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 # Load model and encoders
 model = joblib.load('loan_recovery_model.pkl')
 label_encoders = joblib.load('label_encoders.pkl')
 target_encoder = joblib.load('target_encoder.pkl')
 
-# List of features expected from the user
+# List of expected input features
 FEATURE_COLUMNS = [
     'Age', 'Gender', 'Employment_Type', 'Monthly_Income',
     'Num_Dependents', 'Loan_Amount', 'Loan_Tenure', 'Interest_Rate',
@@ -27,6 +27,8 @@ FEATURE_COLUMNS = [
     'Days_Past_Due', 'Collection_Attempts', 'Collection_Method',
     'Legal_Action_Taken'
 ]
+
+# ✅ Fix: Add function to handle /predict POST route
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
@@ -50,7 +52,7 @@ def predict():
         prediction = model.predict(input_df)[0]
         prediction_label = target_encoder.inverse_transform([prediction])[0]
 
-        # Add basic explanation (optional - simple rule-based logic)
+        # Reason explanation
         reason = ""
         if data['Payment_History'] == 'On-Time':
             reason = "Borrower paid on time, showing good repayment behavior."
@@ -69,10 +71,6 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
-
-
-# Run the app
+# Start server
 if __name__ == '__main__':
     app.run(debug=True)
-
