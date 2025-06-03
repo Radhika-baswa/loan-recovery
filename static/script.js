@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
   });
 
   try {
-    const res = await fetch('https://loan-recovery-5.onrender.com'
+    const res = await fetch('https://loan-recovery-5.onrender.com/predict'
 , {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
