@@ -31,7 +31,7 @@ FEATURE_COLUMNS = [
 # ✅ Fix: Add function to handle /predict POST route
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
+    data = request.get_json()
 
     # Validate input
     if not all(key in data for key in FEATURE_COLUMNS):

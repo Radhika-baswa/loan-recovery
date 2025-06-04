@@ -17,12 +17,22 @@ form.addEventListener('submit', async (e) => {
   });
 
   try {
+<<<<<<< HEAD
     const res = await fetch('https://loan-recovery-5.onrender.com/predict'
 , {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
+=======
+
+    const res = await fetch('https://loan-recovery-5.onrender.com/predict', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+});
+
+>>>>>>> 3620989 (Saving changes before pull)
 
     const result = await res.json();
 
